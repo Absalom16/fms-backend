@@ -35,9 +35,8 @@ class Config:
     PAYMENT_GATEWAY_URL = os.environ.get('PAYMENT_GATEWAY_URL', '')
     PAYMENT_GATEWAY_KEY = os.environ.get('PAYMENT_GATEWAY_KEY', '')
 
-    CORS_ORIGINS = ['http://localhost:3000', 'http://localhost:80']
-
-
+    CORS_ORIGINS = os.environ.get('ALLOWED_ORIGINS', 'http://localhost:3000,http://localhost:80').split(',')
+    
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
